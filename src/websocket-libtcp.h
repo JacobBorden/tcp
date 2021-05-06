@@ -1,4 +1,4 @@
-#include "tcp_export.h"
+#include "websocket-libtcp_export.h"
 #include <WinSock2.h>
 #include <iostream>
 #include <ws2tcpip.h>
@@ -8,7 +8,7 @@
 
 namespace TCP
 {
-    extern "C++" class TCP_EXPORT Socket
+    extern "C++" class WEBSOCKET_LIBTCP_EXPORT Socket
     {
     public:
         Socket();

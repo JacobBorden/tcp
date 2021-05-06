@@ -1,0 +1,42 @@
+
+#ifndef WEBSOCKET_LIBTCP_EXPORT_H
+#define WEBSOCKET_LIBTCP_EXPORT_H
+
+#ifdef WEBSOCKET_LIBTCP_STATIC_DEFINE
+#  define WEBSOCKET_LIBTCP_EXPORT
+#  define WEBSOCKET_LIBTCP_NO_EXPORT
+#else
+#  ifndef WEBSOCKET_LIBTCP_EXPORT
+#    ifdef websocket_libtcp_EXPORTS
+        /* We are building this library */
+#      define WEBSOCKET_LIBTCP_EXPORT __declspec(dllexport)
+#    else
+        /* We are using this library */
+#      define WEBSOCKET_LIBTCP_EXPORT __declspec(dllimport)
+#    endif
+#  endif
+
+#  ifndef WEBSOCKET_LIBTCP_NO_EXPORT
+#    define WEBSOCKET_LIBTCP_NO_EXPORT 
+#  endif
+#endif
+
+#ifndef WEBSOCKET_LIBTCP_DEPRECATED
+#  define WEBSOCKET_LIBTCP_DEPRECATED __declspec(deprecated)
+#endif
+
+#ifndef WEBSOCKET_LIBTCP_DEPRECATED_EXPORT
+#  define WEBSOCKET_LIBTCP_DEPRECATED_EXPORT WEBSOCKET_LIBTCP_EXPORT WEBSOCKET_LIBTCP_DEPRECATED
+#endif
+
+#ifndef WEBSOCKET_LIBTCP_DEPRECATED_NO_EXPORT
+#  define WEBSOCKET_LIBTCP_DEPRECATED_NO_EXPORT WEBSOCKET_LIBTCP_NO_EXPORT WEBSOCKET_LIBTCP_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef WEBSOCKET_LIBTCP_NO_DEPRECATED
+#    define WEBSOCKET_LIBTCP_NO_DEPRECATED
+#  endif
+#endif
+
+#endif /* WEBSOCKET_LIBTCP_EXPORT_H */
